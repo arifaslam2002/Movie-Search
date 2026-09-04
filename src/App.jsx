@@ -10,7 +10,11 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const fetchMovies = async () => {
-    const response = await axios.get("https://api.tvmaze.com/shows?page=0");
+    const randomPage = Math.floor(Math.random() * 5);
+
+    const response = await axios.get(
+      `https://api.tvmaze.com/shows?page=${randomPage}`,
+    );
     setMovies(response.data.slice(0, 100));
   };
   const handleSearch = async (query) => {
@@ -41,7 +45,12 @@ const App = () => {
           element={
             <>
               <SearchBar onSearch={handleSearch} />
-
+              <button
+                onClick={fetchMovies}
+                className="block mx-auto mt-5 bg-gray-800 text-white px-5 py-2 rounded-lg hover:bg-gray-700"
+              >
+                🔄 Show All Movies
+              </button>
               {loading ? (
                 <Loading />
               ) : (
