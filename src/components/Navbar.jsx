@@ -1,10 +1,16 @@
-
 const Navbar = () => {
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <h1 className="text-4xl font-bold text-white" >MovieMania🎥</h1>
-    </div>
-  )
-}
+    <nav className="bg-gray-900 px-8 py-4 flex items-center justify-between">
+      <h1 className="text-2xl font-bold text-white">
+        MovieMania 🎥
+      </h1>
 
-export default Navbar
+      <div className="flex gap-6 text-white">
+        <a href="#">Home</a>
+        <a href="#">Favorites</a>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
